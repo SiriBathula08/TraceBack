@@ -1,0 +1,35 @@
+ PolicyPilot AI — Government Scheme Recommendation System
+
+Built a RAG-based AI assistant that recommends government schemes using semantic search with FAISS and sentence-transformer embeddings.
+
+Designed a multi-agent workflow for eligibility scoring, policy retrieval, and recommendation generation.
+
+Developed and deployed a Streamlit web application integrated with a policy dataset.
+
+
+ShopElite — Full Stack E-Commerce Platform
+Tech Stack: React.js, Node.js, Express.js, MongoDB, JWT, Bootstrap, MUI
+GitHub: github.com/yourname/ecommerce-mern
+Live Demo: https://ecommerce-mern.vercel.app
+
+- Built a production-ready full-stack MERN e-commerce app with
+  JWT authentication and role-based access (Admin & User)
+
+- Developed 10+ RESTful APIs for products, cart, orders,
+  wishlist, payments and user management
+
+- Implemented Admin Dashboard with real-time stats, product
+  management, user panel and order tracking
+
+- Integrated Razorpay payment gateway for secure transactions
+
+- Deployed backend on Render and frontend on Vercel with
+  MongoDB Atlas as cloud database
+
+Projects
+----------------------------------
+TraceBack – Smart Lost & Found Platform
+Tech: React, Spring Boot, PostgreSQL, JWT, Docker, Render
+• Built a full-stack web platform for reporting and recovering lost items.
+• Implemented secure login, role-based authorization, and claim management.
+• Deployed the application with Docker and PostgreSQL on Render cloud.
