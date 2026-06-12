@@ -1,7 +1,9 @@
 TraceBack: Production-Grade Lost & Found Platform
+
 TraceBack is a high-performance, distributed backend and full-stack application designed to handle lost-and-found item tracking at scale. Built with Spring Boot, PostgreSQL, and Redis, the system has been optimized to handle high read loads, minimize database stress through smart caching strategies, and execute lightning-fast queries across millions of records.
 
 🏗️ System Architecture
+
 TraceBack transitions a standard CRUD application into an enterprise-ready distributed system using the Cache-Aside (Lazy Loading) pattern and architectural fail-safes.
 
                   +-----------------------+
