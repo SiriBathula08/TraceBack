@@ -24,10 +24,12 @@ TraceBack transitions a standard CRUD application into an enterprise-ready distr
             |   Cache   |       |  Database |
             +-----------+       +-----------+
 
-Key Architectural PatternsCache-Aside Pattern: 
+Key Architectural PatternsCache-Aside Pattern:
+
 Read requests check Redis first. On a cache miss, data is fetched from PostgreSQL, written back to Redis with a strict 60-minute Time-To-Live (TTL), and returned to the user.Graceful Cache Degradation: Powered by a custom CacheErrorHandler. If your Redis cluster undergoes an outage or network split, the backend intercepts the failure, logs a [Cache DEGRADED] warning, and silently routes 100% of traffic directly to PostgreSQL without a single client-facing crash.Polymorphic JSON Serialization: Configured with a dedicated, isolated Jackson ObjectMapper containing type-safety details for Redis, ensuring Spring MVC’s REST endpoints remain generic and standard-compliant.
 
 ⚡ Performance Optimizations & Benchmarks
+
 The database layer was engineered to withstand high data density and deeply nested page requests.1. Sequential Scan Elimination (Composite Indexing)
 1.Standard single-column indexes fail under complex query filtering. Two production-grade composite B-Tree indexes were designed based on query selectivity patterns:
 idx_items_status_location: (status, location_name) — Optimizes core geolocation search.idx_items_type_status_category: (type, status, category) — Powers primary dashboard filters.
@@ -48,6 +50,7 @@ Page 1 (Offset vs Keyset): Both execute under 2ms.
 Page 5,000 (Deep Pagination): OFFSET queries degrade to 180ms+. Keyset cursor queries maintain stable execute speeds under 2ms (a 98.8% improvement).
 
 🛠️ Tech Stack
+
 Backend Framework: Spring Boot 3.x (Java 17).
 Database: PostgreSQL (Relational persistence, optimized connection pooling via HikariCP)
 Caching Layer: Redis (Distributed data structures, allkeys-lru eviction policy)
@@ -56,6 +59,7 @@ Frontend Framework: React (Vite, TailwindCSS, Axios API Client)
 DevOps & Infrastructure: Docker (Multi-stage layered JAR builds), GitHub Actions (CI/CD)
 
 🚀 Getting Started (Docker Compose Deployment)
+
 The entire infrastructure—including database initialization scripts, seed data, configuration profiles, and environment setups—is fully containerized.
 Prerequisites
 Docker & Docker Compose installed.
